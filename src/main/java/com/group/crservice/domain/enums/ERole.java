@@ -1,4 +1,4 @@
-package com.group.crservice.entity.enums;
+package com.group.crservice.domain.enums;
 
 public enum ERole {
     ROLE_USER,

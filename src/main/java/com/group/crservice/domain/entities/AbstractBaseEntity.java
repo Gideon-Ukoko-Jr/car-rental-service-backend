@@ -1,6 +1,6 @@
-package com.group.crservice.entity.entities;
+package com.group.crservice.domain.entities;
 
-import com.group.crservice.entity.enums.RecordStatusConstant;
+import com.group.crservice.domain.enums.RecordStatusConstant;
 import lombok.Data;
 import lombok.ToString;
 

@@ -1,7 +1,6 @@
-package com.group.crservice.entity.entities;
+package com.group.crservice.domain.entities;
 
-import com.group.crservice.entity.enums.ERole;
-import lombok.*;
+import com.group.crservice.domain.enums.ERole;
 
 import javax.persistence.*;
 

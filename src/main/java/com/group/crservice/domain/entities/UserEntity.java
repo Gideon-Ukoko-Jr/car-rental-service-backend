@@ -1,12 +1,11 @@
-package com.group.crservice.entity.entities;
+package com.group.crservice.domain.entities;
 
-import com.group.crservice.entity.enums.GenderEnum;
+import com.group.crservice.domain.enums.GenderEnum;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 

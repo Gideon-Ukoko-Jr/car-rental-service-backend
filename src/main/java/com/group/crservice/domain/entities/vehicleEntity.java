@@ -6,13 +6,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+
 @Entity
 @Table(name = "cars")
-public class vehicleEntity {
+public class VehicleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -24,10 +21,10 @@ public class vehicleEntity {
     private String model;
     private boolean isAvailable;
 
-    public vehicleEntity() {
+    public VehicleEntity() {
     }
 
-    public vehicleEntity(long id, String regNum, String color, String model, boolean isAvailable) {
+    public VehicleEntity(long id, String regNum, String color, String model, boolean isAvailable) {
         this.id = id;
         this.regNum = regNum;
         this.color = color;

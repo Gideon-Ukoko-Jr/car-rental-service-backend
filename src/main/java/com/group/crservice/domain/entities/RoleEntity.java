@@ -1,10 +1,15 @@
 package com.group.crservice.domain.entities;
 
 import com.group.crservice.domain.enums.ERole;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 
 import javax.persistence.*;
 
 @Entity
+@Data
+@Builder
 @Table(name = "roles")
 public class RoleEntity {
 

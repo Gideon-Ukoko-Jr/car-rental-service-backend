@@ -1,74 +1,38 @@
 package com.group.crservice.domain.entities;
 
+import lombok.*;
+
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "cars")
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "vehicle")
 public class VehicleEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(length = 20)
-    private String regNum;
+    @Column(length = 20, unique = true)
+    private String plateNumber;
+
+    @Column(nullable = false)
+    private String model;
 
     @Column(nullable = false)
     private String color;
 
     @Column(nullable = false)
-    private String model;
+    private BigDecimal pricePerDay;
+
+    @Column(nullable = false)
+    private String imageUrl;
 
     private boolean isAvailable;
 
-    public VehicleEntity(long id, String regNum, String color, String model, boolean isAvailable) {
-        this.id = id;
-        this.regNum = regNum;
-        this.color = color;
-        this.model = model;
-        this.isAvailable = isAvailable;
-    }
-
-    public VehicleEntity() {
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getRegNum() {
-        return regNum;
-    }
-
-    public void setRegNum(String regNum) {
-        this.regNum = regNum;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
 }

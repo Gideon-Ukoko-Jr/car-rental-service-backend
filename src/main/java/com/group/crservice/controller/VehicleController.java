@@ -17,7 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/vehicles")
-@Api(tags = "User Endpoints", description = "Handles Authentication and User Management")
+@Api(tags = "Vehicle Endpoints", description = "Handles Vehicle Endpoints and Management")
 @AllArgsConstructor
 public class VehicleController {
 

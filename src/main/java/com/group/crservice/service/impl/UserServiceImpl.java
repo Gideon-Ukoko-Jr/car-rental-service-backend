@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
         // Retrieving key variables from request object
         String firstName = request.getFirstName();
         String lastname = request.getLastName();
-        String email = request.getEmail();
+        String email = request.getEmail().toLowerCase();
         String password = request.getPassword();
         String phoneNumber = request.getPhoneNumber();
         String address = request.getAddress();

@@ -100,7 +100,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginResponse login(LoginRequest request) {
-        String email = request.getEmail();
+        String email = request.getEmail().toLowerCase();
         UserEntity user = userRepository.findByEmail(email).orElseThrow(() -> new BadRequestException("Invalid email"));
 
         if(!passwordEncoder.matches(request.getPassword(), user.getPassword())) {

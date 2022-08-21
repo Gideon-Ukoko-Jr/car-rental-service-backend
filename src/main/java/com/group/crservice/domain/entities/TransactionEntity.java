@@ -34,6 +34,12 @@ public class TransactionEntity {
 
     private int leaseDays;
 
+    private String transactionDescription;
+
+    private String transactionType;
+
+    private float amount;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private BookingStatus status;

@@ -4,6 +4,7 @@ import com.group.crservice.domain.entities.RoleEntity;
 import com.group.crservice.domain.entities.UserEntity;
 import com.group.crservice.domain.enums.ERole;
 import com.group.crservice.domain.enums.GenderEnum;
+import com.group.crservice.domain.enums.RecordStatusConstant;
 import com.group.crservice.exception.BadRequestException;
 import com.group.crservice.exception.ConflictException;
 import com.group.crservice.exception.ResourceNotFoundException;
@@ -13,6 +14,7 @@ import com.group.crservice.request.LoginRequest;
 import com.group.crservice.request.SignUpRequest;
 import com.group.crservice.response.LoginResponse;
 import com.group.crservice.response.SignUpResponse;
+import com.group.crservice.response.UserResponse;
 import com.group.crservice.security.jwt.JwtUtils;
 import com.group.crservice.service.UserService;
 import io.swagger.annotations.ApiModelProperty;
@@ -32,11 +34,12 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Named
 @Service
-@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -48,6 +51,14 @@ public class UserServiceImpl implements UserService {
     private final AuthenticationManager authenticationManager;
 
     private final JwtUtils jwtUtils;
+
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, JwtUtils jwtUtils) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+        this.jwtUtils = jwtUtils;
+    }
 
     @Override
     public SignUpResponse signUp(SignUpRequest request) {
@@ -89,6 +100,7 @@ public class UserServiceImpl implements UserService {
                 .address(address)
                 .genderEnum(GenderEnum.valueOf(gender))
                 .roles(roles)
+                .isEmployee(false)
                 .build();
 
         userRepository.save(userEntity);
@@ -121,6 +133,34 @@ public class UserServiceImpl implements UserService {
                 .phoneNumber(user.getPhoneNumber())
                 .roles(Collections.singleton(user.getRoles().toString()))
                 .token(jwt)
+                .build();
+    }
+
+    @Override
+    public List<UserResponse> getAllUsers() {
+        List<UserEntity>  userList = userRepository.findAll();
+        return userList.stream().map(this::fromEntityToResponse).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<UserResponse> getAllEmployees() {
+        Set<RoleEntity> roles = new HashSet<>();
+        RoleEntity employeeRole = roleRepository.findByName(ERole.ROLE_EMPLOYEE)
+                .orElseThrow(() -> new ResourceNotFoundException("Error: Role is not found."));
+        roles.add(employeeRole);
+        List<UserEntity> userList = userRepository.findAllEmployees();
+        return userList.stream().map(this::fromEntityToResponse).collect(Collectors.toList());
+    }
+
+    private UserResponse fromEntityToResponse(UserEntity user){
+        return UserResponse.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastname())
+                .phoneNumber(user.getPhoneNumber())
+                .date(user.getDateCreated())
+                .roles(Collections.singleton(user.getRoles().toString()))
                 .build();
     }
 }

@@ -35,4 +35,12 @@ public class VehicleEntity {
 
     private boolean isAvailable;
 
+    public VehicleEntity(String plateNumber, String model, String color, BigDecimal pricePerDay, String imageUrl, boolean isAvailable) {
+        this.plateNumber = plateNumber;
+        this.model = model;
+        this.color = color;
+        this.pricePerDay = pricePerDay;
+        this.imageUrl = imageUrl;
+        this.isAvailable = isAvailable;
+    }
 }

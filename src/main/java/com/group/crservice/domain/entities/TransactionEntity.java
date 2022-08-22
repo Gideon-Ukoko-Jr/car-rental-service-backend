@@ -5,6 +5,7 @@ import com.group.crservice.domain.enums.ERole;
 import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -15,12 +16,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "transaction")
-public class TransactionEntity {
+public class TransactionEntity extends AbstractBaseEntity<Long> {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
 
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
@@ -38,7 +39,7 @@ public class TransactionEntity {
 
     private String transactionType;
 
-    private float amount;
+    private BigDecimal amount;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

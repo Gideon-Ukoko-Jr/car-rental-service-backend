@@ -14,4 +14,8 @@ public interface VehicleService {
 
     VehicleResponse getVehicleById(long id);
     VehicleResponse fromVehicleEntityToVehicleResponse(VehicleEntity vehicleEntity);
+
+    long getAvailableVehicleCount();
+
+    long getVehiclesBookedOut();
 }

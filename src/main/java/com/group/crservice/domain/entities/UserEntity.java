@@ -49,4 +49,7 @@ public class UserEntity extends AbstractBaseEntity<Long>{
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<RoleEntity> roles = new HashSet<>();
+
+    @Column(nullable = false)
+    private boolean isEmployee = false;
 }

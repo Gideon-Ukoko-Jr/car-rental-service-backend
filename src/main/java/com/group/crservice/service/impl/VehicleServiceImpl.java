@@ -72,4 +72,14 @@ public class VehicleServiceImpl implements VehicleService {
                 .isAvailable(vehicleEntity.isAvailable())
                 .build();
     }
+
+    @Override
+    public long getAvailableVehicleCount() {
+        return vehicleRepository.getAllAvailableVehicles().size();
+    }
+
+    @Override
+    public long getVehiclesBookedOut() {
+        return vehicleRepository.getAllBookedOutVehicles().size();
+    }
 }

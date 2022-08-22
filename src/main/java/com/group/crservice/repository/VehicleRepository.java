@@ -18,6 +18,9 @@ public interface VehicleRepository extends JpaRepository<VehicleEntity, Long> {
     @Query("select v from VehicleEntity v where v.isAvailable = true")
     List<VehicleEntity> getAllAvailableVehicles();
 
+    @Query("select v from VehicleEntity v where v.isAvailable = false")
+    List<VehicleEntity> getAllBookedOutVehicles();
+
     @Query("select v from VehicleEntity v order by v.model asc")
     List<VehicleEntity> getAllVehicles();
 }

@@ -1,4 +1,4 @@
-package com.group.crservice;
+package com.group.crservice.bootloader;
 
 import com.group.crservice.domain.entities.RoleEntity;
 import com.group.crservice.domain.entities.UserEntity;

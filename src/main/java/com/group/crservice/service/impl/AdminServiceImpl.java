@@ -85,6 +85,7 @@ public class AdminServiceImpl implements AdminService {
     public String deactivateEmployee(long employeeId) {
         UserEntity employee = userRepository.findById(employeeId).orElseThrow(() -> new ResourceNotFoundException("Error: Employee is not found."));
         employee.setRecordStatus(RecordStatusConstant.INACTIVE);
+        userRepository.save(employee);
         return "Employee : " + employee.getFirstName() + " " + employee.getLastname() + " has been deactivated";
     }
 

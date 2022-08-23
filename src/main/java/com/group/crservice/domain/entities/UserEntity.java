@@ -52,4 +52,6 @@ public class UserEntity extends AbstractBaseEntity<Long>{
 
     @Column(nullable = false)
     private boolean isEmployee = false;
+
+
 }

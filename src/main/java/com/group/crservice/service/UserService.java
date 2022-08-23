@@ -16,6 +16,4 @@ public interface UserService {
 
     List<UserResponse> getAllUsers();
 
-    List<UserResponse> getAllEmployees();
-
 }

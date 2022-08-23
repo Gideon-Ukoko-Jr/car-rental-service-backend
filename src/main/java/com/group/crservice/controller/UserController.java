@@ -31,12 +31,4 @@ public class UserController {
         List<UserResponse> userResponseList = userService.getAllUsers();
         return new ResponseEntity<>(userResponseList, HttpStatus.OK);
     }
-
-    @GetMapping("/employees")
-    @ApiOperation(value = "Handles Getting All Employees")
-    @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<UserResponse>> getAllEmployees(){
-        List<UserResponse> userResponseList = userService.getAllEmployees();
-        return new ResponseEntity<>(userResponseList, HttpStatus.OK);
-    }
 }

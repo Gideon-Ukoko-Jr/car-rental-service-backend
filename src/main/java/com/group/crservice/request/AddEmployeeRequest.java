@@ -1,18 +1,15 @@
 package com.group.crservice.request;
 
-import com.group.crservice.domain.enums.GenderEnum;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
 
 @Data
 @Builder
-public class SignUpRequest {
+public class AddEmployeeRequest {
 
     @ApiModelProperty(notes = "User First Name", required = true)
     @NotEmpty
@@ -24,17 +21,12 @@ public class SignUpRequest {
     @NotNull
     private String lastName;
 
-    @ApiModelProperty(notes = "User Email", required = true)
+    @ApiModelProperty(notes = "Employee Email", required = true)
     @NotEmpty
     @NotNull
     private String email;
 
-    @ApiModelProperty(notes = "User Password", required = true)
-    @NotEmpty
-    @NotNull
-    private String password;
-
-    @ApiModelProperty(notes = "User Phone Number", required = true)
+    @ApiModelProperty(notes = "Employee Phone Number", required = true)
     @NotEmpty
     @NotNull
     private String phoneNumber;
@@ -44,12 +36,12 @@ public class SignUpRequest {
     @NotNull
     private String birthday;
 
-    @ApiModelProperty(notes = "User Address", required = true)
+    @ApiModelProperty(notes = "Employee Address", required = true)
     @NotEmpty
     @NotNull
     private String address;
 
-    @ApiModelProperty(notes = "User Gender - Male | Female", required = true)
+    @ApiModelProperty(notes = "Employee Gender - Male | Female", required = true)
     @NotEmpty
     @NotNull
     private String gender;

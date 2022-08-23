@@ -119,36 +119,33 @@ public class UserServiceImpl implements UserService {
             throw new BadRequestException("Invalid email or password.");
         }
 
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(email, request.getPassword()));
+        else {
+            Authentication authentication = authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(email, request.getPassword()));
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
+            SecurityContextHolder.getContext().setAuthentication(authentication);
+            String jwt = jwtUtils.generateJwtToken(authentication);
 
-        return LoginResponse.builder()
-                .id(user.getId())
-                .email(user.getEmail())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastname())
-                .phoneNumber(user.getPhoneNumber())
-                .roles(Collections.singleton(user.getRoles().toString()))
-                .token(jwt)
-                .build();
+            if (user.getRecordStatus() != RecordStatusConstant.ACTIVE){
+                jwt = "Your Access has been revoked";
+            }
+
+            return LoginResponse.builder()
+                    .id(user.getId())
+                    .email(user.getEmail())
+                    .firstName(user.getFirstName())
+                    .lastName(user.getLastname())
+                    .phoneNumber(user.getPhoneNumber())
+                    .roles(Collections.singleton(user.getRoles().toString()))
+                    .token(jwt)
+                    .build();
+        }
+
     }
 
     @Override
     public List<UserResponse> getAllUsers() {
         List<UserEntity>  userList = userRepository.findAll();
-        return userList.stream().map(this::fromEntityToResponse).collect(Collectors.toList());
-    }
-
-    @Override
-    public List<UserResponse> getAllEmployees() {
-        Set<RoleEntity> roles = new HashSet<>();
-        RoleEntity employeeRole = roleRepository.findByName(ERole.ROLE_EMPLOYEE)
-                .orElseThrow(() -> new ResourceNotFoundException("Error: Role is not found."));
-        roles.add(employeeRole);
-        List<UserEntity> userList = userRepository.findAllEmployees();
         return userList.stream().map(this::fromEntityToResponse).collect(Collectors.toList());
     }
 

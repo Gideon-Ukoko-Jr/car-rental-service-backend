@@ -214,68 +214,68 @@ public class Bootloader implements ApplicationListener<ContextRefreshedEvent> {
     private void createVehicles(){
 
         if (!vehicleRepository.existsByPlateNumber("RRC123")){
-            VehicleEntity vehicle = new VehicleEntity("RRC123", "Rolls-Royce Cullinan", "Silver", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/rolls-royce-cullinan-generation-6123#image11", true);
+            VehicleEntity vehicle = new VehicleEntity("RRC123", "Rolls-Royce Cullinan", "Silver", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f54/Rolls-Royce-Cullinan_2.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("FRM123")){
-            VehicleEntity vehicle = new VehicleEntity("FRM123", "Ferrari Monza", "Black", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/ferrari-monza-sp-generation-6551#image18", true);
+            VehicleEntity vehicle = new VehicleEntity("FRM123", "Ferrari Monza", "Black", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f60/Ferrari-Monza-SP_2.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("LAS123")){
-            VehicleEntity vehicle = new VehicleEntity("LAS123", "Lamborghini Sian", "Gold", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/lamborghini-sian-fkp-37-generation-7281#image10", true);
+            VehicleEntity vehicle = new VehicleEntity("LAS123", "Lamborghini Sian", "Gold", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f33/Lamborghini-Sian-FKP-37.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("BGC123")){
-            VehicleEntity vehicle = new VehicleEntity("BGC123", "Bugatti Chiron", "Blue", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/bugatti-chiron-generation-4795#image12", true);
+            VehicleEntity vehicle = new VehicleEntity("BGC123", "Bugatti Chiron", "Blue", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f40/Bugatti-Chiron.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("FRS123")){
-            VehicleEntity vehicle = new VehicleEntity("FRS123", "Ferrari SP48", "Red", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/ferrari-sp48-unica-generation-8865#image1", true);
+            VehicleEntity vehicle = new VehicleEntity("FRS123", "Ferrari SP48", "Red", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f60/Ferrari-SP48-Unica.jpg", true);
             vehicleRepository.save(vehicle);
         }
 
         if (!vehicleRepository.existsByPlateNumber("BMW123")){
-            VehicleEntity vehicle = new VehicleEntity("BMW123", "BMW 4 Series Gran Coupe G26", "Red", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/bmw-4-series-gran-coupe-g26-generation-8405#image1", true);
+            VehicleEntity vehicle = new VehicleEntity("BMW123", "BMW 4 Series Gran Coupe G26", "Red", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f92/BMW-4-Series-Gran-Coupe-G26.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("LMM123")){
-            VehicleEntity vehicle = new VehicleEntity("LMM123", "lamborghini Murcielago", "Orange", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/lamborghini-murcielago-lp640-roadster-generation-7966#image1", true);
+            VehicleEntity vehicle = new VehicleEntity("LMM123", "lamborghini Murcielago", "Orange", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f34/Lamborghini-Murcielago-LP640-Roadster.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("BBR123")){
-            VehicleEntity vehicle = new VehicleEntity("BBR123", "Bentley Brooklands", "Black", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/bentley-brooklands-ii-generation-1547#image1", true);
+            VehicleEntity vehicle = new VehicleEntity("BBR123", "Bentley Brooklands", "Black", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f65/Bentley-Brooklands-II.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("AMD123")){
-            VehicleEntity vehicle = new VehicleEntity("AMD123", "Aston Martin DBS", "White", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/aston-martin-dbs-superleggera-volante-generation-7080#image8", true);
+            VehicleEntity vehicle = new VehicleEntity("AMD123", "Aston Martin DBS", "White", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f17/Aston-Martin-DBS-Superleggera-Volante.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
         }
 
         if (!vehicleRepository.existsByPlateNumber("ASV123")){
-            VehicleEntity vehicle = new VehicleEntity("ASV123", "Aston Martin Vanquish", "Cyan", BigDecimal.valueOf(2100), "https://www.auto-data.net/en/aston-martin-vanquish-vision-concept-generation-7016#image1", true);
+            VehicleEntity vehicle = new VehicleEntity("ASV123", "Aston Martin Vanquish", "Cyan", BigDecimal.valueOf(2100), "https://www.auto-data.net/images/f54/Aston-Martin-Vanquish-Vision-Concept.jpg", true);
             vehicleRepository.save(vehicle);
         }else {
             log.info("Default Vehicle Init");
